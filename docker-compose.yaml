@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  promtail:
+    image: grafana/promtail:latest
+    volumes:
+      - /var/log:/var/log
+      - ./config:/etc/promtail
+      - ./test_logs:/tmp/test_logs
+    command: -config.file=/etc/promtail/config.yaml
+    networks:
+      - promtail
+
+networks:
+  promtail:
+    external: True
+    name: grafana_network
