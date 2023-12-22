@@ -9,10 +9,10 @@ clients:
   - url: http://${HOST_IP_LOKI}:3100/loki/api/v1/push
 
 scrape_configs:
-- job_name: octoprint_logs
+- job_name: my_logging_job
   static_configs:
   - targets:
       - loki
     labels:
-      job: octoprint_logs
-      __path__: /tmp/octoprint_logs/*.log
+      job: my_logging_job
+      __path__: /path/to/logs/*.log
