@@ -6,13 +6,13 @@ positions:
   filename: /tmp/positions.yaml
 
 clients:
-  - url: http://loki:3100/loki/api/v1/push
+  - url: http://${HOST_IP_LOKI}:3100/loki/api/v1/push
 
 scrape_configs:
-- job_name: test_job
+- job_name: octoprint_logs
   static_configs:
   - targets:
       - loki
     labels:
-      job: test_logs
-      __path__: /tmp/test_logs/*.log
+      job: octoprint_logs
+      __path__: /tmp/octoprint_logs/*.log
